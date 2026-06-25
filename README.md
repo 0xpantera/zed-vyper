@@ -11,17 +11,20 @@ This first version intentionally does **not** download or install `vyper-lsp` fo
 
 ## Local development
 
-Install Rust via `rustup`, then from this repository:
+Install Rust via `rustup`. Zed compiles Rust extensions to WebAssembly, so the
+`wasm32-wasip2` Rust target must be installed. This repository includes a
+`rust-toolchain.toml` that asks rustup for that target; if Zed still reports
+`can't find crate for core`, install it manually:
+
+```sh
+rustup target add wasm32-wasip2
+```
+
+Then from this repository:
 
 ```sh
 cargo check
 cargo build --target wasm32-wasip2
-```
-
-If the `wasm32-wasip2` target is missing:
-
-```sh
-rustup target add wasm32-wasip2
 ```
 
 To validate the pinned grammar outside Zed:
@@ -52,7 +55,8 @@ Headless validation can check the Rust extension crate, the manifest/config file
 3. Select this repository directory.
 4. Open `fixtures/token.vy`.
 5. Confirm Zed selects `Vyper`, loads highlighting, shows outline entries, and starts `Vyper LSP` if `vyper-lsp` is installed.
-6. If something fails, inspect `zed: open log` or launch Zed with `zed --foreground`.
+6. If Zed fails with `the wasm32-wasip2 target may not be installed`, run `rustup target add wasm32-wasip2` and retry installing the dev extension.
+7. If something else fails, inspect `zed: open log` or launch Zed with `zed --foreground`.
 
 ## Grammar note
 

@@ -23,6 +23,10 @@ PY
 
 cargo fmt --check
 cargo check
+if ! rustup target list --installed | grep -qx "wasm32-wasip2"; then
+  echo "Installing missing Rust target: wasm32-wasip2"
+  rustup target add wasm32-wasip2
+fi
 cargo build --target wasm32-wasip2
 
 cd "$GRAMMAR_DIR"
