@@ -1,0 +1,15 @@
+id = "vyper"
+name = "Vyper"
+description = "Vyper language support."
+version = "0.0.1"
+schema_version = 1
+authors = ["Franco <0xpantera@proton.me>"]
+repository = "https://github.com/0xpantera/zed-vyper"
+
+[language_servers.vyper-lsp]
+name = "Vyper LSP"
+languages = ["Vyper"]
+
+[grammars.vyper]
+repository = "https://github.com/madlabman/tree-sitter-vyper"
+rev = "e4d43a8ad1c59fea7c0d4a1c24301829b61694a1"

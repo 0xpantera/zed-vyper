@@ -1,0 +1,6 @@
+/target/
+/.zed/
+__pycache__/
+*.py[cod]
+*.wasm
+.DS_Store
