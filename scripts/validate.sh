@@ -2,8 +2,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-GRAMMAR_REPO="https://github.com/madlabman/tree-sitter-vyper"
-GRAMMAR_REV="e4d43a8ad1c59fea7c0d4a1c24301829b61694a1"
+GRAMMAR_REPO="https://github.com/0xpantera/tree-sitter-vyper-zed"
+GRAMMAR_REV="f3aab540fc349f52cd5bffc4ce44fd816cdf7bc1"
 GRAMMAR_DIR="${TREE_SITTER_VYPER_DIR:-}"
 
 if [[ -z "$GRAMMAR_DIR" ]]; then

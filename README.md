@@ -3,7 +3,7 @@
 Minimal Vyper language support for [Zed](https://zed.dev):
 
 - recognizes `.vy` files as Vyper
-- uses the pinned [`madlabman/tree-sitter-vyper`](https://github.com/madlabman/tree-sitter-vyper) grammar
+- uses a pinned [`tree-sitter-vyper-zed`](https://github.com/0xpantera/tree-sitter-vyper-zed) grammar fork based on [`madlabman/tree-sitter-vyper`](https://github.com/madlabman/tree-sitter-vyper)
 - provides basic syntax highlighting, bracket matching, outline, indentation, and text objects
 - optionally starts [`vyper-lsp`](https://github.com/vyperlang/vyper-lsp) when it is available on `PATH`
 
@@ -60,4 +60,4 @@ Headless validation can check the Rust extension crate, the manifest/config file
 
 ## Grammar note
 
-The current grammar candidate passes its own corpus and parses a modern Vyper smoke fixture with decorators, events, structs, interfaces, storage variables, and keyword arguments. Known limitations should be tracked as focused follow-up tasks rather than expanding this extension into a grammar rewrite.
+The current grammar candidate passes its own corpus and parses a modern Vyper smoke fixture with decorators, events, structs, interfaces, storage variables, and keyword arguments. Zed's grammar builder only compiles `src/parser.c` plus `src/scanner.c`, while the upstream grammar ships its external scanner as `src/scanner.cc`, so this extension pins a small fork with an equivalent C scanner. Known language coverage limitations should be tracked as focused follow-up tasks rather than expanding this extension into a grammar rewrite.

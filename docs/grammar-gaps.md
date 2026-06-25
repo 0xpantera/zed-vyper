@@ -1,8 +1,9 @@
 # Tree-sitter Vyper follow-up gaps
 
-The initial extension intentionally reuses `madlabman/tree-sitter-vyper` instead of starting a grammar rewrite.
+The initial extension intentionally reuses `madlabman/tree-sitter-vyper` instead of starting a grammar rewrite. The extension currently points at a small `0xpantera/tree-sitter-vyper-zed` fork that adds a C external scanner so Zed's grammar builder can compile the parser.
 
-Validated grammar revision: `e4d43a8ad1c59fea7c0d4a1c24301829b61694a1`.
+Validated upstream grammar revision: `e4d43a8ad1c59fea7c0d4a1c24301829b61694a1`.
+Validated Zed-compatible grammar revision: `f3aab540fc349f52cd5bffc4ce44fd816cdf7bc1`.
 
 ## Observed gaps
 
