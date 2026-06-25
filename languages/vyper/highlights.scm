@@ -77,10 +77,15 @@
 
 (parameters (identifier) @variable.parameter)
 (typed_parameter (identifier) @variable.parameter)
+(typed_for_parameter (identifier) @variable.parameter)
+(typed_for_parameter type: (identifier) @type)
 (default_parameter name: (identifier) @variable.parameter)
 (typed_default_parameter (identifier) @variable.parameter)
 (keyword_argument name: (identifier) @variable.parameter)
 (lambda_parameters (identifier) @variable.parameter)
+
+((identifier) @type.builtin
+  (#match? @type.builtin "^(address|bool|bytes[0-9]*|Bytes|String|decimal|int[0-9]*|uint[0-9]*|HashMap|DynArray)$"))
 
 (assignment
   left: (identifier) @property
@@ -90,7 +95,15 @@
   attribute: (identifier) @property)
 
 ((identifier) @variable.special
-  (#any-of? @variable.special "self" "msg" "block" "tx" "chain"))
+  (#any-of? @variable.special "self" "msg" "block" "tx" "chain" "empty"))
+
+((decorator (identifier) @function.builtin)
+  (#any-of? @function.builtin
+    "deploy" "external" "internal" "payable" "nonpayable" "pure" "view"))
+
+((call function: (identifier) @function.builtin)
+  (#any-of? @function.builtin
+    "public" "constant" "immutable" "transient" "payable" "nonpayable" "pure" "view"))
 
 ((call function: (identifier) @function.builtin)
   (#any-of? @function.builtin
@@ -99,9 +112,9 @@
     "create_copy_of" "create_from_blueprint" "create_minimal_proxy_to" "ecadd"
     "ecmul" "ecrecover" "empty" "extract32" "floor" "isqrt" "keccak256"
     "len" "max" "max_value" "method_id" "min" "min_value" "pow_mod256"
-    "raw_call" "raw_log" "send" "sha256" "shift" "slice" "sqrt"
+    "raw_call" "raw_log" "send" "sha256" "shift" "slice" "sqrt" "range"
     "uint256_addmod" "uint256_mulmod" "uint2str" "unsafe_add" "unsafe_div"
-    "unsafe_mul" "unsafe_sub" "indexed" "public" "constant" "immutable"))
+    "unsafe_mul" "unsafe_sub" "indexed" "method_id"))
 
 [
   "def"

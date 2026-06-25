@@ -54,10 +54,7 @@ def update(asset: address, new_price: uint256):
 @external
 def bounded_sum(values: DynArray[uint256, MAX_OBSERVATIONS]) -> uint256:
     total: uint256 = 0
-    # NOTE: tree-sitter-vyper currently errors on modern typed loop variables
-    # (`for value: uint256 in values:`), so this fixture keeps the grammar smoke
-    # test on the parser-supported form.
-    for value in values:
+    for value: uint256 in values:
         if value == 0:
             continue
         total += value

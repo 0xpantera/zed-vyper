@@ -12,4 +12,4 @@ languages = ["Vyper"]
 
 [grammars.vyper]
 repository = "https://github.com/0xpantera/tree-sitter-vyper-zed"
-rev = "f3aab540fc349f52cd5bffc4ce44fd816cdf7bc1"
+rev = "feec016d131deff48519a7bd5f1309cd7c3ab7ef"
