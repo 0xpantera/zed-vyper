@@ -5,9 +5,9 @@ Minimal Vyper language support for [Zed](https://zed.dev):
 - recognizes `.vy` files as Vyper
 - uses a pinned [`tree-sitter-vyper-zed`](https://github.com/0xpantera/tree-sitter-vyper-zed) grammar fork based on [`madlabman/tree-sitter-vyper`](https://github.com/madlabman/tree-sitter-vyper)
 - provides basic syntax highlighting, bracket matching, outline, indentation, and text objects
-- optionally starts [`vyper-lsp`](https://github.com/vyperlang/vyper-lsp) when it is available on `PATH`
+- starts [`vyper-lsp`](https://github.com/vyperlang/vyper-lsp), preferring an executable on `PATH` and falling back to an extension-local `uv` virtual environment
 
-This first version intentionally does **not** download or install `vyper-lsp` for the user.
+The automatic fallback keeps the user's global Python tools untouched. If neither `vyper-lsp` nor `uv` is on `PATH`, Zed will show an installation error with the manual install command below.
 
 ## Local development
 
@@ -45,6 +45,8 @@ pipx install git+https://github.com/vyperlang/vyper-lsp.git
 which vyper-lsp
 vyper-lsp --stdio
 ```
+
+Manual installation is optional when `uv` is available: the extension can install `vyper-lsp` into its own local virtual environment on first LSP startup.
 
 ## Testing in Zed
 

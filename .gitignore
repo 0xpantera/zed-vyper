@@ -1,6 +1,7 @@
 /target/
 /.zed/
 /grammars/
+/vyper-lsp-venv/
 __pycache__/
 *.py[cod]
 *.wasm
